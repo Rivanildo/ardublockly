@@ -21,8 +21,10 @@ before_install:
   - echo $PATH
   - python --version
   - python -c "import struct; print(struct.calcsize('P') * 8)"
+  - pip -V
   - python3 --version
   - python3 -c "import struct; print(struct.calcsize('P') * 8)"
+  - pip3 -V
 
   - brew install libcouchbase
 

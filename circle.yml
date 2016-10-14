@@ -35,8 +35,10 @@ dependencies:
     - sudo easy_install3 pip
     - python --version
     - python -c "import struct; print(struct.calcsize('P') * 8)"
+    - pip -V
     - python3 --version
     - python3 -c "import struct; print(struct.calcsize('P') * 8)"
+    - pip3 -V
 
     # The GLIBC version might have been updated with apt-get installs
     - ldd --version

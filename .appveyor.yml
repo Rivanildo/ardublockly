@@ -1,5 +1,5 @@
 environment:
-  nodejs_version: "0.12.7"
+  nodejs_version: "Stable"
   matrix:
     # First group is 32 bit python 2.7
     - PYTHON: "C:\\Python27"
@@ -33,6 +33,8 @@ init:
   # Prepare pip and pip3, PATH iterated left to right first hit wins
   - cmd: set PATH=%PYTHON%\scripts;%PYTHON3%\scripts;%PATH%
   - cmd: ECHO Path - %PATH%
+  - cmd: "%PIP% -V"
+  - cmd: "%PIP3% -V"
 
   # Ensure node x86 (appveyor powershell script to switch installed versions)
   - ps: Install-Product node 5.1.0 x86
