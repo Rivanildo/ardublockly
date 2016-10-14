@@ -52,7 +52,8 @@ dependencies:
     - pip2 freeze
     # A current issue with pip causes this command to fail
     # https://github.com/pypa/pip/issues/3681
-    - pip3 freeze
+    # Fixed on the 26 May 2016, waiting for release > 8.1.2
+    #- pip3 freeze
 
     # Check node.js versions
     - node --version
