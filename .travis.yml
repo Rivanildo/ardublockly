@@ -1,8 +1,11 @@
 # We are using the iOS build system to create Mac OS X python builds
 language: objective-c
+os: osx
+osx_image: beta-xcode6.2
 
 before_install:
   # OS extra info
+  - sw_vers
   - uname -a
   - python --version
   - python -c "import struct; print(struct.calcsize('P') * 8)"
@@ -10,9 +13,9 @@ before_install:
 
   # Install Python 2 and 3 with pip and check versions
   - brew update
-  - brew install python3
+  - brew outdated python3 || brew install python3
   - brew link --overwrite python3
-  - brew install python
+  - brew outdated python || brew install python
   - brew link --overwrite python
   - PATH=/usr/local/bin:$PATH
   - echo $PATH

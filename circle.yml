@@ -5,7 +5,7 @@ machine:
 
   # Indicating node also offers advantage of bypassing virtual environments
   node:
-    version: 5.1.0
+    version: 5.5.0
 
   # Override /etc/hosts
   hosts:
@@ -38,6 +38,9 @@ dependencies:
     - python3 --version
     - python3 -c "import struct; print(struct.calcsize('P') * 8)"
 
+    # The GLIBC version might have been updated with apt-get installs
+    - ldd --version
+
     # Python packages (built on Python 2, tests run both 2 and 3)
     - sudo pip2 install mock
     - sudo pip2 install awscli
@@ -47,11 +50,9 @@ dependencies:
     - pip2 freeze
     # A current issue with pip causes this command to fail
     # https://github.com/pypa/pip/issues/3681
-    #- pip3 freeze
+    - pip3 freeze
 
-    # Install node.js
-    #- curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
-    #- sudo apt-get install -y nodejs
+    # Check node.js versions
     - node --version
     - npm --version
 
